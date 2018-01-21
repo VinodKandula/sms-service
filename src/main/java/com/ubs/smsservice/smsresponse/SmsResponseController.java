@@ -56,6 +56,7 @@ public class SmsResponseController {
         // to handle the case where there is more than one match,
         // just get the last item in the list.
         // The assumption is that it is the most recent
+        // TODO: need to review this
         Sms sms = smsList.get(smsList.size() - 1);
 
         // TODO: need to parse the body and distinguish between Yes or No.
