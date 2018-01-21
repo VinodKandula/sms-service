@@ -1,13 +1,16 @@
 package com.ubs.smsservice.smsserviceprovider;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
     // Find your Account Sid and Token at twilio.com/user/account
-    public static final String ACCOUNT_SID = "AC8af8fe0565035d36100a6eeb34aa5ce4";
-    public static final String AUTH_TOKEN = "3bd4265016767b8185a95ecd5158032f";
+    @Value("${twilio.ACCOUNT_SID}")
+    private String ACCOUNT_SID;
+    @Value("${twilio.AUTH_TOKEN}")
+    private String AUTH_TOKEN;
 
     @Override
     public void sendSms() {
@@ -20,6 +23,6 @@ public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
         System.out.println(message.getSid());
         */
-        System.out.println("sms sent");
+        System.out.println("sms sent " + ACCOUNT_SID);
     }
 }
