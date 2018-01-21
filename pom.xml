@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>sms-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>SMS Service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

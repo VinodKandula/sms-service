@@ -2,7 +2,6 @@ package com.ubs.smsservice.sms;
 
 import com.ubs.smsservice.smsserviceprovider.SmsServiceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +14,7 @@ public class SmsController {
     @RequestMapping("/greeting")
     public String greeting() {
         smsService.sendSms();
-        return "greeting";
+        return "texts";
     }
 
 }
