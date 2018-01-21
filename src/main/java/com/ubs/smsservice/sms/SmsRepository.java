@@ -12,7 +12,5 @@ public interface SmsRepository extends JpaRepository<Sms, Long>{
 
     List<Sms> findByPhoneNumber(String phoneNumber);
 
-    //@Query(value="SELECT * FROM SMS WHERE phonenumber = ?1", nativeQuery = true)
-    //List<Sms> findByPhoneNumber(String phoneNumber);
 
 }

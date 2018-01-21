@@ -52,6 +52,16 @@ public class SmsResponseController {
         System.out.println("smsContent: " + smsContent);
         List<Sms> smsList = smsService.findByPhoneNumber(phone);
         System.out.println("found items: " + smsList.toString());
+
+        // to handle the case where there is more than one match,
+        // just get the last item in the list.
+        // The assumption is that it is the most recent
+        Sms sms = smsList.get(smsList.size() - 1);
+
+        // TODO: need to parse the body and distinguish between Yes or No.
+        sms.setResponse(smsContent);
+        smsService.smsRepo.save(sms);
+
         /*
         Reservation reservation = reservationRepository.findFirstPendantReservationsByUser(user.getId());
         if (reservation != null) {

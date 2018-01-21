@@ -16,7 +16,7 @@ public class SmsService {
             .getLogger(SmsService.class);
 
     @Autowired
-    SmsRepository smsRepo;
+    public SmsRepository smsRepo;
 
     public List<Sms> findByPhoneNumber(String phoneNumber) {
         return smsRepo.findByPhoneNumber(phoneNumber);

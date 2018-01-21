@@ -56,6 +56,10 @@ public class Sms {
         return callbackUrl;
     }
 
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
     @Override
     public String toString() {
         return "Sms{" +
