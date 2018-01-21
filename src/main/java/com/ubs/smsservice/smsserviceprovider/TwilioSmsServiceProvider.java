@@ -1,12 +1,9 @@
-package com.ubs.smsservice;
+package com.ubs.smsservice.smsserviceprovider;
 
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TwilioSmsService implements SmsService {
+public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
     // Find your Account Sid and Token at twilio.com/user/account
     public static final String ACCOUNT_SID = "AC8af8fe0565035d36100a6eeb34aa5ce4";

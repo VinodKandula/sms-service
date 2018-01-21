@@ -1,4 +1,4 @@
-package com.ubs.smsservice;
+package com.ubs.smsservice.sms;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

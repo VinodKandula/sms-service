@@ -1,5 +1,7 @@
 package com.ubs.smsservice;
 
+import com.ubs.smsservice.sms.Sms;
+import com.ubs.smsservice.sms.SmsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
