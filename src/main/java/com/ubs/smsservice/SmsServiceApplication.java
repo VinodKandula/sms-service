@@ -33,6 +33,8 @@ public class SmsServiceApplication {
         };
 
     }
+
+
 /*
     @Bean
      public class MyBean implements CommandLineRunner {
@@ -44,9 +46,5 @@ public class SmsServiceApplication {
 
     }
 */
-
-
-
-
 
 }

@@ -16,7 +16,7 @@ public class TwilioSmsServiceProvider implements SmsServiceProvider {
     private String ACCOUNT_SID;
     @Value("${twilio.AUTH_TOKEN}")
     private String AUTH_TOKEN;
-    @Value("${twilio.phoneNumber}")
+    @Value("${twilio.PHONE_NUMBER}")
     private String from;
 
     @Override
@@ -32,4 +32,5 @@ public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
         System.out.println("sms sent " + ACCOUNT_SID);
     }
+
 }

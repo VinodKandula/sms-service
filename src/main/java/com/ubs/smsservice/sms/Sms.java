@@ -13,7 +13,7 @@ public class Sms {
     private Long id;
 
     private String phoneNumber;
-    private String text;
+    private String body;
     private String response;
     private int requestNumber;
     private String callbackUrl;
@@ -26,7 +26,7 @@ public class Sms {
     public Sms(String phoneNumber, String text, String response, int requestNumber, String callbackUrl) {
         super();
         this.phoneNumber = phoneNumber;
-        this.text = text;
+        this.body = body;
         this.response = response;
         this.requestNumber = requestNumber;
         this.callbackUrl = callbackUrl;
@@ -40,8 +40,8 @@ public class Sms {
         return phoneNumber;
     }
 
-    public String getText() {
-        return text;
+    public String getBody() {
+        return body;
     }
 
     public String getResponse() {
@@ -61,7 +61,7 @@ public class Sms {
         return "Sms{" +
                 "id=" + id +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", text='" + text + '\'' +
+                ", body='" + body + '\'' +
                 ", response='" + response + '\'' +
                 ", requestNumber=" + requestNumber +
                 ", callbackUrl='" + callbackUrl + '\'' +

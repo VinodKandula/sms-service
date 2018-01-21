@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.NoResultException;
+import java.util.List;
+
 
 @Service
 public class SmsService {
@@ -15,5 +18,8 @@ public class SmsService {
     @Autowired
     SmsRepository smsRepo;
 
+    public List<Sms> findByPhoneNumber(String phoneNumber) {
+        return smsRepo.findByPhoneNumber(phoneNumber);
+    }
 }
 
