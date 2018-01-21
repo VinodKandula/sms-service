@@ -2,5 +2,5 @@ package com.ubs.smsservice.smsserviceprovider;
 
 public interface SmsServiceProvider {
 
-    void sendSms();
+    void sendSms(String to, String body);
 }

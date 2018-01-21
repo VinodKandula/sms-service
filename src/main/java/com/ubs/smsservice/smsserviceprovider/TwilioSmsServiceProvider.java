@@ -3,6 +3,11 @@ package com.ubs.smsservice.smsserviceprovider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
+
 @Service
 public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
@@ -11,18 +16,20 @@ public class TwilioSmsServiceProvider implements SmsServiceProvider {
     private String ACCOUNT_SID;
     @Value("${twilio.AUTH_TOKEN}")
     private String AUTH_TOKEN;
+    @Value("${twilio.phoneNumber}")
+    private String from;
 
     @Override
-    public void sendSms() {
-        /*
+    public void sendSms(String to, String body) {
+
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
-        Message message = Message.creator(new PhoneNumber("+12012752759"),
-                new PhoneNumber("+12017343425"),
-                "This is the ship that made the Kessel Run in fourteen parsecs?").create();
+        Message message = Message.creator(new PhoneNumber(to),
+                new PhoneNumber(from),
+                body).create();
 
         System.out.println(message.getSid());
-        */
+
         System.out.println("sms sent " + ACCOUNT_SID);
     }
 }

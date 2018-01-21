@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class SmsServiceApplication {
@@ -32,4 +33,20 @@ public class SmsServiceApplication {
         };
 
     }
+/*
+    @Bean
+     public class MyBean implements CommandLineRunner {
+
+        public void run(String... args) {
+            RestTemplate restTemplate = new RestTemplate();
+            String result = restTemplate.getForObject("http://www.example.com/api/resource", String.class);
+        }
+
+    }
+*/
+
+
+
+
+
 }
