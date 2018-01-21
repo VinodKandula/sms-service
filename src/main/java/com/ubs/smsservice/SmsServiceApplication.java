@@ -21,8 +21,7 @@ public class SmsServiceApplication {
     public CommandLineRunner demo(SmsRepository repository) {
         return (args) -> {
             // save a few sms
-            repository.save(new Sms("eric1"));
-            repository.save(new Sms("eric2"));
+            repository.save(new Sms("+12012752759", "Please response Yes or No.", "", 1, ""));
 
             log.info("Sms Repo record count: {}", repository.count());
             for (Sms sms : repository.findAll()) {
