@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TwilioSmsServiceProvider implements SmsServiceProvider {
 
-    // Find your Account Sid and Token at twilio.com/user/account
+    // Find your Account Sid and Token at twilio.com/console
     @Value("${twilio.ACCOUNT_SID}")
     private String ACCOUNT_SID;
     @Value("${twilio.AUTH_TOKEN}")
