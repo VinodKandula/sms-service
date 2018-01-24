@@ -1,5 +1,14 @@
 ---
 applications:
 - name: sms-service
+  timeout: 120
   random-route: true
   path: ./target/sms-service-0.0.1-SNAPSHOT.jar
+  services:
+    - config-server
+    - cloud-bus
+    - twilio
+    - sms-service-db
+  env:
+    SPRING_PROFILES_ACTIVE: flyway
+    TRUST_CERTS: api.run.pivotal.io

@@ -23,7 +23,7 @@ public class Sms {
     }
 
 
-    public Sms(String phoneNumber, String text, String response, int requestNumber, String callbackUrl) {
+    public Sms(String phoneNumber, String body, String response, int requestNumber, String callbackUrl) {
         super();
         this.phoneNumber = phoneNumber;
         this.body = body;

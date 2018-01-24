@@ -23,9 +23,7 @@ public class SmsServiceApplication {
     @Bean
     public CommandLineRunner demo(SmsRepository repository) {
         return (args) -> {
-            // save a few sms
-            repository.save(new Sms("+12012752759", "Please response Yes or No.", "", 1, ""));
-
+            // publish sms messages in DB
             log.info("Sms Repo record count: {}", repository.count());
             for (Sms sms : repository.findAll()) {
                 log.info(sms.toString());

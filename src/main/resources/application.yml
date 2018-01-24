@@ -1,0 +1,31 @@
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: MYSQL
+
+logging:
+  level:
+    root: INFO
+    com:
+      ubs: DEBUG
+      netflix: OFF
+    org:
+      flywaydb: DEBUG
+#        core.internal:
+#          dbsupport.SqlScript: DEBUG # SQL only
+#          command.DbMigrate: DEBUG
+
+# Twilio properties
+twilio:
+  ACCOUNT_SID: ${vcap.services.twilio.credentials.account_sid}
+  AUTH_TOKEN: ${vcap.services.twilio.credentials.auth_token}
+  PHONE_NUMBER: ${vcap.services.twilio.credentials.phone_number}
