@@ -5,6 +5,6 @@ CREATE TABLE sms (
   response varchar(255),
   request_number int,
   callback_url varchar(255),
-  created_date long,
-  modified_date long,
+  created_date datetime,
+  modified_date datetime
 );

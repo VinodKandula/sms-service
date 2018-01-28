@@ -3,6 +3,7 @@ package com.ubs.smsservice.smsresponse;
 import com.ubs.smsservice.sms.Sms;
 import com.ubs.smsservice.sms.SmsService;
 import com.ubs.smsservice.smsserviceprovider.SmsServiceProvider;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@Api(description="Operations pertaining to SMS Responses")
 public class SmsResponseController {
 
     @Autowired
