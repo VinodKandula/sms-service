@@ -29,3 +29,14 @@ twilio:
   ACCOUNT_SID: ${vcap.services.twilio.credentials.account_sid}
   AUTH_TOKEN: ${vcap.services.twilio.credentials.auth_token}
   PHONE_NUMBER: ${vcap.services.twilio.credentials.phone_number}
+
+###
+#   H2 Settings
+###
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
