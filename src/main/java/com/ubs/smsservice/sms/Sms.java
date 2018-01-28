@@ -12,34 +12,44 @@ public class Sms {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @ApiModelProperty(notes = "The database generated SMS ID")
+    @ApiModelProperty(value = "The database generated SMS ID",
+            hidden=true)
     private Long id;
 
-    @ApiModelProperty(notes = "The phone number to where the SMS message should be sent to")
+    @ApiModelProperty(value = "The phone number to where the SMS message should be sent to",
+            example = "+12015551234",
+            required=true,
+            position=1)
     private String phoneNumber;
 
-    @ApiModelProperty(notes = "The body of the message for the SMS message")
+    @ApiModelProperty(value = "The body of the message for the SMS message",
+            example = "Please response Yes or No.",
+            position=2)
     private String body;
 
-    @ApiModelProperty(notes = "The response to this SMS message from the phone")
-    private String response;
+    @ApiModelProperty(value = "The response to this SMS message from the phone",
+            allowEmptyValue=true,
+            hidden=true)
+    private String response="";
 
-    @ApiModelProperty(notes = "A requestNumber field that will later be sent back to the caller")
-    private int requestNumber;
+    @ApiModelProperty(value = "A requestNumber field that will later be sent back to the caller"
+            , allowEmptyValue=true)
+    private int requestNumber=0;
 
-    @ApiModelProperty(notes = "The URL to where the response will later be sent to")
-    private String callbackUrl;
+    @ApiModelProperty(value = "The URL to where the response will later be sent to",
+            example = "http://example.com",
+            allowEmptyValue=true)
+    private String callbackUrl="";
 
     public Sms() {
 
     }
 
 
-    public Sms(String phoneNumber, String body, String response, int requestNumber, String callbackUrl) {
+    public Sms(String phoneNumber, String body, int requestNumber, String callbackUrl) {
         super();
         this.phoneNumber = phoneNumber;
         this.body = body;
-        this.response = response;
         this.requestNumber = requestNumber;
         this.callbackUrl = callbackUrl;
     }

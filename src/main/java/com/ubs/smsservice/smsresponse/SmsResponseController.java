@@ -14,6 +14,7 @@ import com.twilio.twiml.messaging.Body;
 import com.twilio.twiml.messaging.Message;
 import com.twilio.twiml.MessagingResponse;
 import com.twilio.twiml.TwiMLException;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -113,6 +114,14 @@ public class SmsResponseController {
 
 
         // call callbackurl with response
+        final String uri = sms.getCallbackUrl();
+
+        RestTemplate restTemplate = new RestTemplate();
+        Sms result = restTemplate.postForObject( uri, sms, Sms.class);
+
+        System.out.println(result);
+
     }
+
 
 }
