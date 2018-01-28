@@ -15,7 +15,7 @@ To create a generic microservice that multiple applications can use to easily se
 Provide code examples and explanations of how to get the project.
 
 ## API Reference
-Swagger documentation
+Swagger documentation: 
 http://localhost:8080/swagger-ui.html
 
 ## Tests

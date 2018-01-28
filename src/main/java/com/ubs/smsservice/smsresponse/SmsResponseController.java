@@ -32,7 +32,7 @@ public class SmsResponseController {
     public SmsResponseController() {
     }
 
-    @RequestMapping(value = "/smsResponses", method = RequestMethod.POST, produces = "application/xml")
+    @RequestMapping(value = "smsResponses", method = RequestMethod.POST, produces = "application/xml")
     public void smsResponse(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         String phone = request.getParameter("From");
