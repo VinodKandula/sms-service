@@ -2,20 +2,25 @@
 
 SMS Service that will proxy requests to and from a SMS provider such as Twilio
 
-## Code Example
-* Send a request
-* Receive a response
+## Send a Request
+curl -X GET "http://localhost:8080/smsRequests" -H "accept: application/json"
+
+{
+  "phoneNumber": "+12015551234",
+  "body": "Please response Yes or No.",
+  "requestNumber": 0,
+  "callbackUrl": "http://example.com"
+}
 
 ## Motivation
 
 To create a generic microservice that multiple applications can use to easily send a SMS message or receive a SMS message.
 
 ## Installation
-
-Provide code examples and explanations of how to get the project.
+* Configure Twilio endpoint to http://hostname/smsResponses
 
 ## API Reference
-Swagger documentation: 
+* Swagger documentation: 
 http://localhost:8080/swagger-ui.html
 
 ## Tests
