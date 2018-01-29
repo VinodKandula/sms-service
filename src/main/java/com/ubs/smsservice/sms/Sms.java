@@ -6,6 +6,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 
 @Entity
 public class Sms {
@@ -48,11 +49,11 @@ public class Sms {
     @Column(updatable=false, nullable = false)
     @ApiModelProperty(hidden=true)
     @CreatedDate
-    private long createdDate;
+    private Timestamp createdDate;
 
     @LastModifiedDate
     @ApiModelProperty(hidden=true)
-    private long modifiedDate;
+    private Timestamp modifiedDate;
 
     public Sms() {
 
@@ -114,19 +115,19 @@ public class Sms {
         this.callbackUrl = callbackUrl;
     }
 
-    public long getCreatedDate() {
+    public Timestamp getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(long createdDate) {
+    public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
     }
 
-    public long getModifiedDate() {
+    public Timestamp getModifiedDate() {
         return modifiedDate;
     }
 
-    public void setModifiedDate(long modifiedDate) {
+    public void setModifiedDate(Timestamp modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
