@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
@@ -46,6 +47,7 @@ public class SmsResponseController {
 
         // save the sms response into the repository
         sms.setResponse(smsContent);
+        sms.setModifiedDate(new Timestamp(System.currentTimeMillis()));
         smsService.smsRepo.save(sms);
         System.out.println("Saved: "+sms.toString());
 
