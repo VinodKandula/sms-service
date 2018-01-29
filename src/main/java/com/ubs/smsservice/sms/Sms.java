@@ -49,11 +49,11 @@ public class Sms {
     @Column(updatable=false, nullable = false)
     @ApiModelProperty(hidden=true)
     @CreatedDate
-    private Timestamp createdDate;
+    private Timestamp createdDate = new Timestamp(System.currentTimeMillis());
 
     @LastModifiedDate
     @ApiModelProperty(hidden=true)
-    private Timestamp modifiedDate;
+    private Timestamp modifiedDate = new Timestamp(System.currentTimeMillis());
 
     public Sms() {
 
