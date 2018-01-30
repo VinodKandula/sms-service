@@ -39,25 +39,26 @@ public class SmsResponseController {
 
         System.out.println("phone: " + phone);
         System.out.println("smsContent: " + smsContent);
-        List<Sms> smsList = smsService.findByPhoneNumber(phone);
-        System.out.println("found items: " + smsList.toString());
 
-        // We will get the last match, in case there is more than one match
-        // The assumption is that it is the most recent
-        Sms sms = smsList.get(smsList.size() - 1);
+        Sms sms = smsService.findFirstByPhoneNumberOrderByCreatedDateDesc(phone);
 
-        // save the sms response into the repository
-        sms.setResponse(smsContent);
-        sms.setModifiedDate(new Timestamp(System.currentTimeMillis()));
-        smsService.smsRepo.save(sms);
-        System.out.println("Saved: "+sms.toString());
+        if (sms != null) {
+            System.out.println("found item: " + sms.toString());
+
+            // save the sms response into the repository
+            sms.setResponse(smsContent);
+            sms.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+            smsService.smsRepo.save(sms);
+            System.out.println("Saved: " + sms.toString());
+
+            // call callbackurl to sms object
+            ResponseEntity<String> result = this.postToCallbackUrl(sms.getCallbackUrl(), sms);
+            System.out.println(result);
+        }
 
         // Send a empty response back to the SMS provider
         smsServiceProvider.sendResponse(response, "");
 
-        // call callbackurl to sms object
-        ResponseEntity<String> result = this.postToCallbackUrl(sms.getCallbackUrl(), sms);
-        System.out.println(result);
     }
 
     private ResponseEntity<String> postToCallbackUrl (final String url, Object obj) {

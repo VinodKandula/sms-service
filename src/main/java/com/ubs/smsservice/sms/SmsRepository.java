@@ -14,4 +14,8 @@ public interface SmsRepository extends JpaRepository<Sms, Long>{
     @ApiOperation("find all SMS Requests that are associated with a given phone number")
     List<Sms> findByPhoneNumber(String phoneNumber);
 
+    @ApiOperation("find the latest SMS Request associated with a given phone number by created date")
+    Sms findFirstByPhoneNumberOrderByCreatedDateDesc(String phoneNumber);
+
+
 }
