@@ -5,6 +5,7 @@ import com.ubs.smsservice.sms.SmsService;
 import com.ubs.smsservice.smsserviceprovider.SmsServiceProvider;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,16 +56,24 @@ public class SmsResponseController {
         smsServiceProvider.sendResponse(response, "");
 
         // call callbackurl to sms object
-        Sms result = this.postToCallbackUrl(sms.getCallbackUrl(), sms);
+        ResponseEntity<String> result = this.postToCallbackUrl(sms.getCallbackUrl(), sms);
         System.out.println(result);
     }
 
-    private Sms postToCallbackUrl (final String uri, Sms sms) {
+    private ResponseEntity<String> postToCallbackUrl (final String url, Object obj) {
 
+        //set your headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        //set your entity to send
+        HttpEntity entity = new HttpEntity(obj,headers);
+
+        //send it!
         RestTemplate restTemplate = new RestTemplate();
-        Sms result = restTemplate.postForObject( uri, sms, Sms.class);
+        ResponseEntity<String> out = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
-        return result;
+        return out;
     }
 
 }
