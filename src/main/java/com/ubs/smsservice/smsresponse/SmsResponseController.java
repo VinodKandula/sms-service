@@ -21,13 +21,14 @@ import java.util.List;
 @Api(description="Operations pertaining to SMS Responses")
 public class SmsResponseController {
 
-    @Autowired
-    SmsService smsService;
+    private final SmsService smsService;
+
+    private final SmsServiceProvider smsServiceProvider;
 
     @Autowired
-    SmsServiceProvider smsServiceProvider;
-
-    public SmsResponseController() {
+    public SmsResponseController(final SmsService smsService, final SmsServiceProvider smsServiceProvider) {
+        this.smsService = smsService;
+        this.smsServiceProvider = smsServiceProvider;
     }
 
     @RequestMapping(value = "smsResponses", method = RequestMethod.POST, produces = "application/xml")

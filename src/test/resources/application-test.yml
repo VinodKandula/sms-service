@@ -1,0 +1,7 @@
+sms:
+  phoneNumber: "+12223334444"
+  callbackUrl: http://some.callback.url
+twilio:
+  ACCOUNT_SID: ABCDEFG
+  AUTH_TOKEN: HIJKLMNOP
+  PHONE_NUMBER: "+17778889999"

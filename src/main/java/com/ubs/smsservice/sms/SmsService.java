@@ -16,8 +16,12 @@ public class SmsService {
     Logger logger = LoggerFactory
             .getLogger(SmsService.class);
 
+    public final SmsRepository smsRepo;
+
     @Autowired
-    public SmsRepository smsRepo;
+    public SmsService(final SmsRepository smsRepo) {
+        this.smsRepo = smsRepo;
+    }
 
     public List<Sms> findByPhoneNumber(String phoneNumber) {
         return smsRepo.findByPhoneNumber(phoneNumber);
