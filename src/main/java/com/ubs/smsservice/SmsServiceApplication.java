@@ -36,17 +36,4 @@ public class SmsServiceApplication {
 
     }
 
-
-/*
-    @Bean
-     public class MyBean implements CommandLineRunner {
-
-        public void run(String... args) {
-            RestTemplate restTemplate = new RestTemplate();
-            String result = restTemplate.getForObject("http://www.example.com/api/resource", String.class);
-        }
-
-    }
-*/
-
 }

@@ -30,6 +30,7 @@ class SmsEntity {
 
     @Column(updatable=false, nullable = false)
     @CreatedDate
+    @ApiModelProperty(hidden=true)
     private Timestamp createdDate = new Timestamp(System.currentTimeMillis());
 
     @LastModifiedDate
