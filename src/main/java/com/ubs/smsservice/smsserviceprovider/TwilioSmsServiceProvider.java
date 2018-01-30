@@ -8,6 +8,8 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.twiml.MessagingResponse;
 import com.twilio.type.PhoneNumber;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class TwilioSmsServiceProvider implements SmsServiceProvider {
 
@@ -15,6 +17,8 @@ class TwilioSmsServiceProvider implements SmsServiceProvider {
     private final String accountSid;
     private final String authToken;
     private final String from;
+
+    private static final Logger log = LoggerFactory.getLogger(TwilioSmsServiceProvider.class);
 
     TwilioSmsServiceProvider(String accountSid, String authToken, String from) {
         this.accountSid = accountSid;
@@ -28,8 +32,7 @@ class TwilioSmsServiceProvider implements SmsServiceProvider {
         Message message = Message.creator(new PhoneNumber(to),
                 new PhoneNumber(from),
                 body).create();
-        System.out.println(message.getSid());
-        System.out.println("SMS sent: " + this.authToken);
+        log.info("SMS sent: {}", message.getSid());
     }
 
     @Override
