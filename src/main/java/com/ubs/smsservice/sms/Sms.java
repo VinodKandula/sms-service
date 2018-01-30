@@ -1,5 +1,6 @@
 package com.ubs.smsservice.sms;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,7 +13,7 @@ import java.sql.Timestamp;
 
 @Entity
 @XmlRootElement(name="sms")
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sms {
 
     @Id
