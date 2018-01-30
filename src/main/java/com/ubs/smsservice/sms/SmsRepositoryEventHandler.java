@@ -1,22 +1,22 @@
 package com.ubs.smsservice.sms;
 
 import com.ubs.smsservice.smsserviceprovider.SmsServiceProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 
-@RepositoryEventHandler(Sms.class)
-public class SmsRepositoryEventHandler {
+@RepositoryEventHandler(SmsEntity.class)
+class SmsRepositoryEventHandler {
 
-    @Autowired
-    SmsServiceProvider smsService;
+    private final SmsServiceProvider smsService;
+
+    SmsRepositoryEventHandler(SmsServiceProvider smsService) {
+        this.smsService = smsService;
+    }
 
     @HandleAfterCreate
-    public void handleSmsCreate(Sms sms) {
+    public void handleSmsCreate(SmsEntity sms) {
         System.out.println("Sending sms: "+ sms.toString());
-
         smsService.sendSms(sms.getPhoneNumber(),sms.getBody());
-
     }
 
 }

@@ -1,34 +1,26 @@
 package com.ubs.smsservice.sms;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
-
-import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.stream.Collectors;
 
-
-@Service
 public class SmsService {
 
-    Logger logger = LoggerFactory
-            .getLogger(SmsService.class);
+    private final SmsRepository smsRepo;
 
-    public final SmsRepository smsRepo;
-
-    @Autowired
-    public SmsService(final SmsRepository smsRepo) {
+    SmsService(final SmsRepository smsRepo) {
         this.smsRepo = smsRepo;
     }
 
-    public List<Sms> findByPhoneNumber(String phoneNumber) {
-        return smsRepo.findByPhoneNumber(phoneNumber);
+    private Sms smsFromEntity(SmsEntity smsEntity) {
+        return new Sms(smsEntity.getPhoneNumber(), smsEntity.getBody(),
+                smsEntity.getRequestNumber(), smsEntity.getCallbackUrl());
     }
 
-    public Sms findFirstByPhoneNumberOrderByCreatedDateDesc(String phoneNumber) {
-        return smsRepo.findFirstByPhoneNumberOrderByCreatedDateDesc(phoneNumber);
+    // TODO: most likely adding sms is required
+
+    public List<Sms> findAll() {
+        return smsRepo.findAll().stream().map(this::smsFromEntity)
+                .collect(Collectors.toList());
     }
 
 }
