@@ -14,27 +14,45 @@ class SmsEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @ApiModelProperty(value = "The database generated SMS ID")
     private Long id;
 
     @NotNull
+    @ApiModelProperty(value = "The phone number to where the SMS message should be sent to",
+            example = "+12015551234",
+            required=true)
     private String phoneNumber;
 
     @NotNull
+    @ApiModelProperty(value = "The body of the message for the SMS message",
+            example = "Please response Yes or No.",
+            position = 2)
     private String body;
 
+    @ApiModelProperty(value = "The response to this SMS message from the phone",
+            example = "",
+            allowEmptyValue=true)
     private String response="";
 
+    @ApiModelProperty(value = "A requestNumber field that will later be sent back to the caller",
+            allowEmptyValue=true,
+            example="0",
+            position = 3)
     private int requestNumber=0;
 
+    @ApiModelProperty(value = "The URL to where the response will later be sent to",
+            example = "http://example.com",
+            allowEmptyValue=true,
+            position = 4)
     private String callbackUrl="";
 
     @Column(updatable=false, nullable = false)
     @CreatedDate
-    @ApiModelProperty(hidden=true)
+    @ApiModelProperty(hidden = true)
     private Timestamp createdDate = new Timestamp(System.currentTimeMillis());
 
     @LastModifiedDate
-    @ApiModelProperty(hidden=true)
+    @ApiModelProperty(hidden = true)
     private Timestamp modifiedDate = new Timestamp(System.currentTimeMillis());
 
     public SmsEntity() {
