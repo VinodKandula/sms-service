@@ -25,7 +25,7 @@ class SomeClient {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		//set your entity to send
-		HttpEntity entity = new HttpEntity(obj,headers);
+		HttpEntity<Object> entity = new HttpEntity<>(obj,headers);
 		//send it!
 		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}

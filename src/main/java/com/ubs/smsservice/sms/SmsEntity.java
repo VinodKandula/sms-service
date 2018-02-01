@@ -30,7 +30,6 @@ class SmsEntity {
     private String body;
 
     @ApiModelProperty(value = "The response to this SMS message from the phone",
-            example = "",
             allowEmptyValue=true)
     private String response="";
 

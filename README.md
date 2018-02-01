@@ -2,7 +2,7 @@
 
 SMS Service that will proxy requests to and from a SMS provider such as Twilio.
 
-1. An application will posta request to the SMS service endpoint /smsRequests.  The Sms service will save the request and send it to Twilio.
+1. An application will post request to the SMS service endpoint /smsRequests.  The Sms service will save the request and send it to Twilio.
 2. Twilio will then send a SMS message to the phone.
 3. The phone user can then send a SMS response back, which Twilio will forward to the SMS-service's endpoint /smsResponses
 4. The SMS service will match the request with the latest SMS request by phone number, save the request, and then POST the SMS object back to the callback URL.
